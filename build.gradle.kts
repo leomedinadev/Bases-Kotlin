@@ -27,3 +27,8 @@ tasks.withType<KotlinCompile> {
 application {
     mainClass.set("MainKt")
 }
+
+// El programa es un menú interactivo: sin esto, `gradlew run` no recibe lo que se escribe
+tasks.named<JavaExec>("run") {
+    standardInput = System.`in`
+}
